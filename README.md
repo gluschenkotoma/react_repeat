@@ -26,6 +26,8 @@
 <div class="eventBoard">Event cards</div>
 ```
 
+- Что бы зарендерить колекцию, нужно мепнуть json
+
 ```css
 .eventBoard {
   display: grid;
@@ -37,6 +39,8 @@
 ```
 
 ### Event
+
+- отдельный компонент
 
 ```html
 <div class="event">
