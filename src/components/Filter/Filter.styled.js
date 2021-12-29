@@ -13,22 +13,19 @@ export const TriggerButton = styled.button`
   cursor: pointer;
   > svg {
     display: block;
-    margin-left: 12px;
+    margin-left: 8px;
   }
 `;
 
 export const Popover = styled.div`
   position: absolute;
   border: 1px solid blue;
-  padding: 4px;
   background-color: #fff;
 `;
 
 export const Options = styled.div`
-  display: flex;
-  flex-direction: column;
   padding: 8px;
-  min-height: 200px;
+  max-height: 240px;
   overflow: hidden; //все что не влазит -спрятать
   overflow-y: auto; //скрол по вертикали
 `;
