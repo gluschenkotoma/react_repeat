@@ -21,6 +21,7 @@ export const GlobalStyle = createGlobalStyle`
   img {
     display: block;
     max-width: 100%;
+    
   }
 
   ul {
@@ -37,5 +38,7 @@ export const GlobalStyle = createGlobalStyle`
   h6,
   p {
     margin: 0;
+  
+
   }
 `;
