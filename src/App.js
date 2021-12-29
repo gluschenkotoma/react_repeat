@@ -21,6 +21,7 @@ function App() {
     <>
       <GlobalStyle />
       <Filter
+        searchable
         isOpen
         options={[
           { value: 'xs', label: 'exstra small' },
