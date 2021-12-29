@@ -52,6 +52,6 @@ export const SearchBox = styled.div`
   }
 `;
 export const SearchInput = styled.input`
-  width: 100%;
+  width: 100%; //по умолчанию браузер дает свой размер, поєтому width перезаписать
   padding: 0 20px 0 0;
 `;
