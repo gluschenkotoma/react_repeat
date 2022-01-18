@@ -7,6 +7,7 @@ export class Example1 extends Component {
   state = {
     selectedVideo: null,
   };
+
   // метод который изменяе стейт, записывает ссылку заместь null
   selectVideo = link => {
     this.setState({ selectedVideo: link });
