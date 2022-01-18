@@ -94,6 +94,7 @@ export class Product extends Component {
               <FormError name="title" />
             </div>
           </div>
+
           <div>
             <label htmlFor="review">Review</label>
             <div>
@@ -101,6 +102,7 @@ export class Product extends Component {
               <FormError name="review" />
             </div>
           </div>
+
           <div>
             <label htmlFor="rating">Rating</label>
             <div>
@@ -108,6 +110,7 @@ export class Product extends Component {
               <FormError name="rating" />
             </div>
           </div>
+
           <div>
             <div>
               <label htmlFor="wouldRecommend">
@@ -116,6 +119,7 @@ export class Product extends Component {
               </label>
             </div>
           </div>
+
           <button type="submit">Submit</button>
         </Form>
       </Formik>
