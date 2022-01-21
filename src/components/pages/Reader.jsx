@@ -1,7 +1,7 @@
 import { Component } from 'react';
-import { Controls } from './Controls';
-import { Progress } from './Progress';
-import { Publication } from './Publication';
+import { Controls } from 'components/Reader/Controls';
+import { Progress } from 'components/Reader/Progress';
+import { Publication } from 'components/Reader/Publication';
 
 const LS_KEY = 'reader_item_index';
 
