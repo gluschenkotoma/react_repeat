@@ -4,7 +4,7 @@ import { Progress } from 'components/Reader/Progress';
 import { Publication } from 'components/Reader/Publication';
 
 // import * as API from 'services/publicationsApi';
-import { getPublication } from 'services/publicationsApi';
+import { getPublication, deletePublication } from 'services/publicationsApi';
 
 // const LS_KEY = 'reader_item_index';
 
@@ -17,6 +17,19 @@ export class Reader extends Component {
   //value - на сколько изменять
   changeIndex = value => {
     this.setState(state => ({ index: state.index + value }));
+  };
+
+  deleteItem = async () => {
+    const { index, items } = this.state;
+    const currentItem = items[index]; //[][0]undefined
+    try {
+      await deletePublication(currentItem.id);
+      this.setState(prevState => ({
+        items: prevState.items.filter(item => item.id !== currentItem.id),
+      }));
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   async componentDidMount() {
@@ -50,9 +63,8 @@ export class Reader extends Component {
     // console.log(this.props.items[this.state.index]);
     // const currentItem = this.props.items[this.state.index];
     const { index, items, isLoading } = this.state;
-
-    const totalItems = items.length;
     const currentItem = items[index]; //[][0]undefined
+    const totalItems = items.length;
 
     return (
       <div>
@@ -87,6 +99,12 @@ export class Reader extends Component {
         {!isLoading && totalItems === 0 && <div>Еще нет публикаций</div>}
         {!isLoading && totalItems > 0 && (
           <>
+            <button
+              type="button"
+              onClick={() => this.deleteItem(currentItem.id)}
+            >
+              Delete publication
+            </button>
             <Controls
               current={index + 1}
               total={totalItems}
