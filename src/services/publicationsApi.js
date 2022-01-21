@@ -16,6 +16,6 @@ export const addPublication = async data => {
 
 //
 export const deletePublication = async id => {
-  const response = await axios.delete(`/publication/${id}`);
+  const response = await axios.delete(`/publications/${id}`);
   return response.data;
 };

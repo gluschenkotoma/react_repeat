@@ -24,8 +24,8 @@ export class Reader extends Component {
     const currentItem = items[index]; //[][0]undefined
     try {
       await deletePublication(currentItem.id);
-      this.setState(prevState => ({
-        items: prevState.items.filter(item => item.id !== currentItem.id),
+      this.setState(state => ({
+        items: state.items.filter(item => item.id !== currentItem.id),
       }));
     } catch (error) {
       console.log(error.message);
@@ -99,10 +99,7 @@ export class Reader extends Component {
         {!isLoading && totalItems === 0 && <div>Еще нет публикаций</div>}
         {!isLoading && totalItems > 0 && (
           <>
-            <button
-              type="button"
-              onClick={() => this.deleteItem(currentItem.id)}
-            >
+            <button type="button" onClick={this.deleteItem}>
               Delete publication
             </button>
             <Controls
