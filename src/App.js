@@ -3,8 +3,8 @@ import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from 'components/GlobalStyle';
 import { Reader } from 'components/pages/Reader';
 import { Layout } from 'components/Layout';
+import { CreatePublication } from 'components/pages/CreatePublication';
 
-import publications from './publications.json';
 const theme = {};
 
 function App() {
@@ -13,11 +13,10 @@ function App() {
       <GlobalStyle />
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<Reader items={publications} />} />
-          <Route path="create" element={<div>CREATE</div>} />
+          <Route index element={<Reader />} />
+          <Route path="create" element={<CreatePublication />} />
         </Route>
       </Routes>
-      {/* <Reader items={publications} /> */}
     </ThemeProvider>
   );
 }

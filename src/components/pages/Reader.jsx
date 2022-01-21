@@ -3,38 +3,56 @@ import { Controls } from 'components/Reader/Controls';
 import { Progress } from 'components/Reader/Progress';
 import { Publication } from 'components/Reader/Publication';
 
-const LS_KEY = 'reader_item_index';
+// import * as API from 'services/publicationsApi';
+import { getPublication } from 'services/publicationsApi';
+
+// const LS_KEY = 'reader_item_index';
 
 export class Reader extends Component {
   state = {
     index: 0,
+    items: [],
+    isLoading: false,
   };
   //value - на сколько изменять
   changeIndex = value => {
     this.setState(state => ({ index: state.index + value }));
   };
 
-  componentDidMount() {
-    const savedState = localStorage.getItem(LS_KEY);
-    if (savedState) {
-      this.setState({ index: Number(savedState) });
+  async componentDidMount() {
+    try {
+      this.setState({ isLoading: true });
+      const items = await getPublication();
+      // console.log(items); //(12) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+      // записать items в стейт которые пришли с фетча (перезаписать стейт)
+      this.setState({ isLoading: false });
+      this.setState({ items });
+    } catch (error) {
+      console.log(error);
     }
   }
 
-  componentDidUpdate(_, prevState) {
-    if (prevState.index !== this.state.index) {
-      localStorage.setItem(LS_KEY, this.state.index);
-    }
-  }
+  // componentDidMount() {
+  //   const savedState = localStorage.getItem(LS_KEY);
+  //   if (savedState) {
+  //     this.setState({ index: Number(savedState) });
+  //   }
+  // }
+
+  // componentDidUpdate(_, prevState) {
+  //   if (prevState.index !== this.state.index) {
+  //     localStorage.setItem(LS_KEY, this.state.index);
+  //   }
+  // }
 
   render() {
     // this.props.item = масив,this.state.index - индекс активного элемента, выбор обьекта по индексу из массива
     // console.log(this.props.items[this.state.index]);
     // const currentItem = this.props.items[this.state.index];
-    const { index } = this.state;
-    const { items } = this.props;
+    const { index, items, isLoading } = this.state;
+
     const totalItems = items.length;
-    const currentItem = items[index];
+    const currentItem = items[index]; //[][0]undefined
 
     return (
       <div>
@@ -64,13 +82,20 @@ export class Reader extends Component {
           <p>{currentItem.text}</p>
         </article> */}
 
-        <Controls
-          current={index + 1}
-          total={totalItems}
-          onChange={this.changeIndex}
-        />
-        <Progress current={index + 1} total={totalItems} />
-        <Publication item={currentItem} />
+        {/*  */}
+        {isLoading && <div>Download...</div>}
+        {!isLoading && totalItems === 0 && <div>Еще нет публикаций</div>}
+        {!isLoading && totalItems > 0 && (
+          <>
+            <Controls
+              current={index + 1}
+              total={totalItems}
+              onChange={this.changeIndex}
+            />
+            <Progress current={index + 1} total={totalItems} />
+            {currentItem && <Publication item={currentItem} />}
+          </>
+        )}
       </div>
     );
   }
