@@ -6,7 +6,7 @@ export const Player = ({ url }) => {
 
   useEffect(() => {
     setIsVideoLoaded(false);
-  }, [url]);
+  }, [url]); //если проп url изменяется, выполни эфект setIsVideoLoaded(false)
 
   const showLoader = url && !isVideoLoaded;
   const playerSize = isVideoLoaded ? '100%' : 0;
@@ -28,3 +28,7 @@ export const Player = ({ url }) => {
     </>
   );
 };
+
+// url - пропс
+// useEffect(() => {setIsVideoLoaded(false);  }, [url]); если проп изменяется в масиве зависимостей, выполняется функция
+// в масив зависимостей попадает значение с if, prevProps.url !==this.props.url
