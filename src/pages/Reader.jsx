@@ -5,13 +5,34 @@ import { Publication } from 'components/Reader/Publication';
 import { getPublications, deletePublication } from 'services/publicationsApi';
 
 export const Reader = () => {
+  // state = {
+  //     index: 0,
+  //     items: [],
+  //     isLoading: false,
+  //   };
   const [index, setIndex] = useState(0);
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
+  //  changeIndex = value => {
+  //     this.setState(state => ({ index: state.index + value }));
+  //   };
   const changeIndex = value => {
     setIndex(prevIndex => prevIndex + value);
   };
+
+  // deleteItem = async () => {
+  //     const { index, items } = this.state;
+  //     const currentItem = items[index];
+  //     try {
+  //       await deletePublication(currentItem.id);
+  //       this.setState(state => ({
+  //         items: state.items.filter(item => item.id !== currentItem.id),
+  //       }));
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   };
 
   const deleteItem = async () => {
     const currentItem = items[index];
@@ -23,6 +44,15 @@ export const Reader = () => {
     }
   };
 
+  //   async componentDidMount() {
+  //     try {
+  //       this.setState({ isLoading: true });
+  //       const items = await getPublications();
+  //       this.setState({ isLoading: false, items });
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   }
   useEffect(() => {
     async function fetchPublications() {
       try {

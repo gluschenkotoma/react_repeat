@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect,  } from 'react';
 import { useMountedState } from 'react-use';
 import { Controls } from './Controls';
 import { Progress } from './Progress';
