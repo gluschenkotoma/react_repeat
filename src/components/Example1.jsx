@@ -37,3 +37,27 @@ export const Example1 = () => {
     </div>
   );
 };
+
+// export class Example1 extends Component {
+//   state = {
+//     page: 1,
+//   };
+
+//   onClick = () => {
+//     this.setState(({ page }) => ({ page: page + 1 }));
+//   };
+
+//   componentDidUpdate(_, prevState) {
+//     if (prevState.page !== this.state.page) {
+//       console.log('Виполнить фетч');
+//     }
+//   }
+
+//   render() {
+//     return (
+//       <>
+//         <button onClick={this.onClick}>Load More</button>
+//       </>
+//     );
+//   }
+// }
