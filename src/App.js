@@ -1,5 +1,11 @@
+import { Example1 } from 'components/Example1';
+
 function App() {
-  return <>Hello</>;
+  return (
+    <>
+      <Example1 />
+    </>
+  );
 }
 
 export default App;
