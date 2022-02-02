@@ -1,4 +1,4 @@
-import { useState, useEffect,  } from 'react';
+import { useState, useEffect } from 'react';
 import { useMountedState } from 'react-use';
 import { Controls } from './Controls';
 import { Progress } from './Progress';
@@ -69,6 +69,16 @@ export const Reader = ({ items }) => {
 //       localStorage.setItem(LS_KEY, this.state.index);
 //     }
 //   }
+// ====================
+
+// useEffect(() => { const savedState = local.Storage.getItem(LS_KEY)
+//   if (savedState) {
+//    setIndex(Number(savedState)
+//   }
+
+// }, []);  //только при монтировании
+// useEffect(() => { localStorage.setItem((LS_KEY, index)}, [index])   //при обновлении index
+// ======================
 
 //   render() {
 //     const { index } = this.state;
