@@ -1,17 +1,16 @@
 import { Layout } from 'components/Layout';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { ListPage } from 'pages';
-import { ItemPage } from 'pages';
+import { ListPage, ItemPage, AddItemPage, PreviewPage } from 'pages';
 
 function App() {
   return (
     // МАРШРУТЫ ПОД НАВИГАЦИЮ
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route path="preview" element={<div>Preview Page</div>} />
+        <Route path="preview" element={<PreviewPage />} />
         <Route path="list" element={<ListPage />} />
         <Route path="list/:itemId" element={<ItemPage />} />
-        <Route path="create" element={<div>Create Page</div>} />
+        <Route path="create" element={<AddItemPage />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Route>
     </Routes>

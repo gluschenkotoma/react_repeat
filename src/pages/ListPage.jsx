@@ -1,29 +1,7 @@
 import { Loader } from 'components/Loader';
-import { useState, useEffect } from 'react';
-import { getPublications } from 'services/publicationsApi';
-import { Link } from 'react-router-dom';
-// КАСТОМНЙ ХУК useFetchItems
-const useFetchItems = () => {
-  const [items, setItems] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
 
-  useEffect(() => {
-    async function fetchItems() {
-      setLoading(true);
-      try {
-        const items = await getPublications();
-        setItems(items);
-      } catch (error) {
-        setError(error.message);
-      } finally {
-        setLoading(false);
-      }
-    }
-    fetchItems();
-  }, []);
-  return { items, loading, error }; //возвращает из себя
-};
+import { Link } from 'react-router-dom';
+import { useFetchItems } from 'hooks';
 
 export const ListPage = () => {
   const { items, loading, error } = useFetchItems(); //вызов кастомного хука useFetchItems
