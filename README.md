@@ -42,4 +42,11 @@
 
 ```
 
-#
+# import { useParams } from 'react-router-dom';
+
+````
+ useParams - получить id (динамический параметр :itemId) из url
+ useParams - возвращает обьект динамического параметра
+ const p = useParams();
+console.log(p); //{itemId: '9'}```
+````
