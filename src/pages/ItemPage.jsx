@@ -1,15 +1,33 @@
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getPublicationById } from 'services/publicationsApi';
 import { Publication } from 'components/Publication';
+import { FaArrowLeft } from 'react-icons/fa';
+import toast from 'react-hot-toast';
 
 export const ItemPage = () => {
   const { itemId } = useParams();
   const [item, setItem] = useState(null);
 
+  useEffect(() => {
+    async function fetchItem() {
+      try {
+        const item = await getPublicationById(itemId);
+        setItem(item);
+      } catch (error) {
+        console.log(error.message);
+        toast.error('Publication not found');
+      }
+    }
+    fetchItem();
+  }, [itemId]);
+
   return (
     <main>
-      <h1>itemId</h1>
+      <Link to="/list">
+        <FaArrowLeft /> To publications
+      </Link>
+      <button type="button">Delete Publication</button>
       {item && <Publication item={item} />}
     </main>
   );

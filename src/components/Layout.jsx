@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { GlobalStyle } from 'components/GlobalStyle';
+import { Toaster } from 'react-hot-toast';
 
 import { Outlet, NavLink } from 'react-router-dom';
 const Nav = styled.nav`
@@ -28,6 +29,8 @@ export const Layout = () => {
       </Nav>
       {/* для рендэра маршруов с App*/}
       <Outlet />
+      {/* portal */}
+      <Toaster />
     </Wrapper>
   );
 };
