@@ -6,7 +6,7 @@ import { Publication } from 'components/Publication';
 import { useFetchItems } from 'hooks';
 
 export const PreviewPage = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams(); //setSearchParams фу-я для изменения параметра с url
   const { items, loading } = useFetchItems(); //забрать весь список на бекенде
   const currentItemPos = Number(searchParams.get('item')); //текущая позиция
 
