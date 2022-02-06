@@ -17,12 +17,27 @@
 
 # <Outlet /> -
 
-это маршруты с App в <Layout />
-
 ```
+это маршруты с App в <Layout />
  <Route path="/" element={<Layout />}>
         <Route path="preview" element={<div>Preview Page</div>}></Route>
         <Route path="list" element={<div>List Page</div>}></Route>
         <Route path="create" element={<div>Create Page</div>}></Route>
       </Route>
+```
+
+# pages
+
+````компоненты для
+<Route path="list" element={<COMPONENTFROMPAGE/>}></Route>```
+````
+
+# pages-index.js риэкспорт
+
+```
+- index.js-export * from './ListPage';
+- App->import { ListPage } from 'pages';
+- компонент -export const ListPage = () => {
+  return <main>HEreListpage</main>;};
+
 ```
