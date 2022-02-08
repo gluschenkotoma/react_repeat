@@ -5,17 +5,17 @@ import { Layout } from 'components/Layout';
 
 // для именованых экспортов
 
-const loader = componentName => {
+const createChunk = componentName => {
   return lazy(() =>
     import(`../pages/${componentName}`).then(module => ({
       default: module[componentName],
     }))
   );
 };
-const PreviewPage = loader('PreviewPage');
-const ListPage = loader('ListPage');
-const ItemPage = loader('ItemPage');
-const AddItemPage = loader('AddItemPage');
+const PreviewPage = createChunk('PreviewPage');
+const ListPage = createChunk('ListPage');
+const ItemPage = createChunk('ItemPage');
+const AddItemPage = createChunk('AddItemPage');
 
 export const App = () => {
   return (
