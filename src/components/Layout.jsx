@@ -25,10 +25,14 @@ export const Layout = () => {
     <Wrapper>
       <GlobalStyle />
       <Nav>
+        {/* разметка линков */}
         <Link to="/preview">Preview</Link>
         <Link to="/list">List</Link>
         <Link to="/create">Create</Link>
+        <Link to="/page-a">PageA</Link>
+        <Link to="/page-b">PageB</Link>
       </Nav>
+      {/* рэндер роутов */}
       <Suspense fallback="">
         <Outlet />
       </Suspense>

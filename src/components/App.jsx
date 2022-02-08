@@ -2,6 +2,7 @@ import { lazy } from 'react'; // динамический импорт
 import { Routes, Route, Navigate } from 'react-router-dom';
 // import { ListPage, ItemPage, AddItemPage, PreviewPage } from 'pages'; //статический импорт
 import { Layout } from 'components/Layout';
+import { PageA, PageB } from 'pages';
 
 // для именованых экспортов
 
@@ -26,6 +27,8 @@ export const App = () => {
         <Route path="list/:itemId" element={<ItemPage />} />
         <Route path="create" element={<AddItemPage />} />
         <Route path="*" element={<Navigate to="/" />} />
+        <Route path="page-a" element={<PageA />} />
+        <Route path="page-b" element={<PageB />} />
       </Route>
     </Routes>
   );
