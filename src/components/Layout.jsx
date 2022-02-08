@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Outlet, NavLink } from 'react-router-dom';
+import { Suspense } from 'react';
 import { Toaster } from 'react-hot-toast';
 import { GlobalStyle } from './GlobalStyle';
 
@@ -28,7 +29,10 @@ export const Layout = () => {
         <Link to="/list">List</Link>
         <Link to="/create">Create</Link>
       </Nav>
-      <Outlet />
+      <Suspense fallback="">
+        <Outlet />
+      </Suspense>
+
       <Toaster />
     </Wrapper>
   );
