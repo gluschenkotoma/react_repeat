@@ -3,6 +3,7 @@ import { GlobalStyle } from 'components/GlobalStyle';
 import { Toaster } from 'react-hot-toast';
 
 import { Outlet, NavLink } from 'react-router-dom';
+
 const Nav = styled.nav`
   display: flex;
   gap: 20px;
