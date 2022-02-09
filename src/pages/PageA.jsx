@@ -1,9 +1,19 @@
 import { Link, useSearchParams, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 
 export const PageA = () => {
   const location = useLocation();
   const [searchParams, setsearchParams] = useSearchParams();
   console.log(location);
+
+  // сделать запрос
+  const query = searchParams.get('query');
+
+  useEffect(() => {
+    if (query) {
+      console.log('делаем риквест');
+    }
+  }, [query]);
 
   const handleSubmit = e => {
     e.preventDefault();
